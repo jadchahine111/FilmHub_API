@@ -18,7 +18,7 @@ const session = require('express-session');
 
 require('./config/passportConfig'); // For OAuth
 
-const allowedOrigins = ["http://localhost:3000", "http://localhost:5173", "https://filmhub.vercel.app"]; // Add all allowed origins here
+const allowedOrigins = ["http://localhost:3000", "http://localhost:5173", "https://film-hub-amber.vercel.app"]; // Add all allowed origins here
 
 // Configure CORS to allow requests from your frontend
 const corsOptions = {
