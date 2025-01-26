@@ -20,7 +20,6 @@ const userSchema = new mongoose.Schema({
     push: { type: Boolean, default: true }
   },
   lastLogin: { type: Date },
-  refreshToken: { type: String }, // Added to store the refresh token
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }
 }, {

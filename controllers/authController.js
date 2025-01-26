@@ -95,10 +95,8 @@ const login = async (req, res) => {
       });
     }
 
-    // Generate access token and refresh token
     const accessToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "15m" });
 
-    // Store refresh token in the database
     await user.save();
 
     // Set HTTP-only cookies for accessToken

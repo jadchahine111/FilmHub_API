@@ -45,10 +45,7 @@ router.post('/callback', async (req, res) => {
 
     // Generate tokens
     const accessToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '15m' });
-    const refreshToken = jwt.sign({ id: user._id }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '7d' });
 
-    // Update user's refresh token
-    user.refreshToken = refreshToken;
     user.lastLogin = new Date();
     await user.save();
 
@@ -59,11 +56,6 @@ router.post('/callback', async (req, res) => {
       sameSite: 'strict'
     });
 
-    res.cookie('refreshToken', refreshToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict'
-    });
 
     res.status(200).json({
       user: {
