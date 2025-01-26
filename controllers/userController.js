@@ -28,6 +28,7 @@ const fetchUserInfo = async (req, res) => {
             googleId: user.googleId,
             watchlist: user.watchlist,
             phoneNumber: user.phoneNumber,
+            bio: user.bio,
         };
 
         await setCache(cacheKey, userInfo, 3600); // Cache for 1 hour
